@@ -11,16 +11,12 @@ export class AppComponent implements AfterViewInit, OnInit {
   name = 'App-Angular9-viewChild';
   dato: string;
   altura: string = "20px";
-  altura2: string="20px"
+  altura2: string = "20px"
   @ViewChild(HelloComponent, { static: false }) hello: HelloComponent;
 
   @ViewChild('pRef', { static: false }) pRef: ElementRef;
   ngOnInit() {
     (document.querySelector('#padre') as HTMLElement).style.backgroundColor = "orange";
-    
-
-
-
 
   }
   ngAfterViewInit() {
@@ -34,7 +30,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     this.pRef.nativeElement.innerHTML += `<h2>${this.dato}</h2>`;
     (document.querySelector('#padre2') as HTMLElement)
       .addEventListener('mouseover', this.cambiarcolor);
-      (document.querySelector('#padre2') as HTMLElement)
+    (document.querySelector('#padre2') as HTMLElement)
       .addEventListener('mouseleave', this.cambiarcolor2);
   }
 
