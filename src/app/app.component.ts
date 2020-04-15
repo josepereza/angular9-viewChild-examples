@@ -11,13 +11,13 @@ export class AppComponent implements AfterViewInit, OnInit {
   name = 'App-Angular9-viewChild';
   dato: string;
   altura: string = "20px";
+  altura2: string="20px"
   @ViewChild(HelloComponent, { static: false }) hello: HelloComponent;
 
   @ViewChild('pRef', { static: false }) pRef: ElementRef;
   ngOnInit() {
     (document.querySelector('#padre') as HTMLElement).style.backgroundColor = "orange";
-    (document.querySelector('#padre') as HTMLElement)
-      .addEventListener('mouseover', this.cambiarcolor);
+    
 
 
 
@@ -32,7 +32,10 @@ export class AppComponent implements AfterViewInit, OnInit {
     this.pRef.nativeElement.innerHTML = "DOM updated succesfully!!!";
     this.dato = this.hello.impresion2();
     this.pRef.nativeElement.innerHTML += `<h2>${this.dato}</h2>`;
-
+    (document.querySelector('#padre2') as HTMLElement)
+      .addEventListener('mouseover', this.cambiarcolor);
+      (document.querySelector('#padre2') as HTMLElement)
+      .addEventListener('mouseleave', this.cambiarcolor2);
   }
 
   prueba() {
@@ -41,8 +44,15 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
   cambiarcolor() {
 
-    (document.querySelector('#padre') as HTMLElement).style.backgroundColor = "green";
-    (document.querySelector('#padre') as HTMLElement).style.color = "white";
+    (document.querySelector('#padre2') as HTMLElement).style.backgroundColor = "green";
+    (document.querySelector('#padre2') as HTMLElement).style.color = "white";
+
+  }
+
+  cambiarcolor2() {
+
+    (document.querySelector('#padre2') as HTMLElement).style.backgroundColor = "white";
+    (document.querySelector('#padre2') as HTMLElement).style.color = "black";
 
   }
   cambioaltura1() {
